@@ -19,3 +19,4 @@ class DoubanbooksItem(scrapy.Item):
     ISBN = scrapy.Field()                       # ISBN号
     subject_id = scrapy.Field()                 # 豆瓣书籍ID
     tags = scrapy.Field()                       # 标签
+

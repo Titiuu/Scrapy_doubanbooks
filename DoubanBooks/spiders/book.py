@@ -2,6 +2,7 @@ import scrapy
 from DoubanBooks.items import DoubanbooksItem
 import time
 
+
 class BookSpider(scrapy.Spider):
     name = 'book'
     allowed_domains = ['book.douban.com']

@@ -71,15 +71,6 @@ class DoubanbooksDownloaderMiddleware:
         return s
 
     def process_request(self, request, spider):
-        # Called for each request that goes through the downloader
-        # middleware.
-
-        # Must either:
-        # - return None: continue processing this request
-        # - or return a Response object
-        # - or return a Request object
-        # - or raise IgnoreRequest: process_exception() methods of
-        #   installed downloader middleware will be called
         ua = random.choice(UA_LIST)
         if ua:
             request.headers.setdefault('User-Agent', ua)
@@ -106,3 +97,4 @@ class DoubanbooksDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+

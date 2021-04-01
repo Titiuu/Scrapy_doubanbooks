@@ -1,19 +1,18 @@
 import scrapy
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import Rule
-from DoubanBooks.items import DoubanbooksItem
 
 
 class DoubanSpider(scrapy.Spider):
-    name = 'douban'
-    baseurl = "https://book.douban.com"
-    allowed_domains = ['book.douban.com']
-    start_urls = ['https://book.douban.com/tag/%E5%B0%8F%E8%AF%B4/']  # 小说
-    books_number = 0
-    page_number = 0
+    name = 'douban'  # 爬虫名称
+    baseurl = "https://book.douban.com"  # 基础url
+    allowed_domains = ['book.douban.com']  # 爬取域名
+    start_urls = ['https://book.douban.com/tag/%E5%B0%8F%E8%AF%B4/']  # 小说预览页url
+    books_number = 0  # 爬取书籍数量控制
+    page_number = 0  # 爬取页面数量控制
     rules = [
         Rule(LinkExtractor(allow='https://book.douban.com/tag/%E5%B0%8F%E8%AF%B4/[^/]+/?$')),
-    ]
+    ]  # 允许的链接爬取规则
 
     def parse(self, response):
         sel = scrapy.Selector(response)

@@ -5,15 +5,15 @@ import re
 
 
 class CommentSpider(scrapy.Spider):
-    name = 'comment'
-    allowed_domains = ['book.douban.com']
-    tfidf = {}
-    data = open('bookidlist.txt').readlines()
-    start_urls = ['https://book.douban.com/subject/' + data[0] + '/comments/']
-    booknum = 0
+    name = 'comment'  # 爬虫名称
+    allowed_domains = ['book.douban.com']  # 域名
+    tfidf = {}  # 关键词字典
+    data = open('bookidlist.txt').readlines()  # 书籍主页链接列表
+    start_urls = ['https://book.douban.com/subject/' + data[0] + '/comments/']  # 开始的url
+    booknum = 0  # 爬取60本书后结束
 
     def parse(self, response):
-        time.sleep(2)
+        time.sleep(2)  # 时延，避免爬取过快
         print("sleep a while")
         sel = scrapy.Selector(response)
         comid = response.url[32:-1]
