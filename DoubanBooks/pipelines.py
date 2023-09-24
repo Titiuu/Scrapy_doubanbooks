@@ -7,7 +7,7 @@
 # useful for handling different item types with a single interface
 # from itemadapter import ItemAdapter
 from twisted.enterprise import adbapi
-import pymysql
+import pymysql #pymysql是一个流行的Python模块，专门用于与MySQL数据库进行交互
 
 
 class DoubanbooksPipeline:
